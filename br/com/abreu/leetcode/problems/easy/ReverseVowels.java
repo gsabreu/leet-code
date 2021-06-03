@@ -11,6 +11,7 @@ public class ReverseVowels {
 
     }
 
+    //13ms
     public static String reverseVowels(String s) {
         HashSet<Character> vowels = setupHashSet();
         char[] chars = s.toCharArray();
@@ -35,6 +36,29 @@ public class ReverseVowels {
         return result.toString();
     }
 
+    //3ms
+    public String FasterReverseVowels(String s)
+    {
+        int i = 0 , j = s.length() - 1 ;
+        char temp ;
+        HashSet<Character> vowels= setupHashSet();
+        char[] c = s.toCharArray() ;
+        while( i < j )
+        {
+            while( i < j && !vowels.contains(c[i]))
+            {
+                i++;
+            }
+            while( i < j && !vowels.contains(c[j]))
+            {
+                j--;
+            }
+            temp = c[i];
+            c[i++] = c[j];
+            c[j--] = temp;
+        }
+        return new String(c) ;
+    }
     public static HashSet<Character> setupHashSet(){
         HashSet<Character> vowels = new HashSet<>();
         vowels.add('a');
@@ -49,4 +73,6 @@ public class ReverseVowels {
         vowels.add('U');
         return vowels;
     }
+
+
 }
