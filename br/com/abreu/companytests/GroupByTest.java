@@ -1,4 +1,4 @@
-package br.com.abreu.leetcode.challenge;
+package br.com.abreu.companytests;
 
 import java.util.Locale;
 
